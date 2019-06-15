@@ -5,8 +5,11 @@ import router from './router'
 import store from './store'
 import firebase from 'firebase'
 
+const localEnv = require('./mysetting.env')
+
+
 Vue.config.productionTip = false
-const firebaseConfig = require('./mysetting.env')
+const firebaseConfig = localEnv["FIRE_BASE"]
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
