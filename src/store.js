@@ -11,9 +11,11 @@ export default new Vuex.Store({
     drawer: false,
     now_datetime: moment().format("YYYY-MM-DD"),
     tags: { 1: 'perl', 2: 'HTML', 3: 'CSS', 4: 'javascript', 5: 'その他', 6: '雑記' },
-    notes: []
+    users: [],
+    notes: [],
   },
   mutations: {
+    // OAuth
     setLoginUser (state, user) {
       state.login_user = user
     },
@@ -22,6 +24,12 @@ export default new Vuex.Store({
     },
     toggleSideMenu (state) {
       state.drawer = !state.drawer
+    },
+
+    // users
+    updateUser (state, { id, user }) {
+      const index = state.users.findIndex(user => user.id === id)
+      state.users[index] = user
     },
 
     // notes
@@ -39,9 +47,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    setLoginUser ({ commit }, user) {
-      commit('setLoginUser', user)
-    },
+    // OAuth
     login () {
       const google_auth_provider = new firebase.auth.GoogleAuthProvider()
       firebase.auth().signInWithRedirect(google_auth_provider)
@@ -49,12 +55,25 @@ export default new Vuex.Store({
     logout () {
       firebase.auth().signOut()
     },
+    setLoginUser ({ commit }, user) {
+      commit('setLoginUser', user)
+    },
     deleteLoginUser ({ commit }) {
       commit('deleteLoginUser')
     },
     toggleSideMenu ({ commit }) {
       commit('toggleSideMenu')
     },
+
+    // users
+    updateUser ({ getters, commit }, { id, user }) {
+      if (getters.uid) {
+        firebase.firestore().collection(`users/${getters.uid}`).doc(id).update(user).then(() => {
+          commit('updateUser', { id, user })
+        })
+      }
+    },
+
 
     // notes
     pickupNote ({ getters, commit }) {
@@ -71,7 +90,7 @@ export default new Vuex.Store({
     },
     updateNote ({ getters, commit }, { id, note }) {
       if (getters.uid) {
-        firebase.firestore().collection(`notes/${getters.uid}`).doc(id).update(note).then(() => {
+        firebase.firestore().collection(`notes`).doc(id).update(note).then(() => {
           commit('updateNote', { id, note })
         })
       }

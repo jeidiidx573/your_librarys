@@ -2,8 +2,8 @@
   <v-container text-xs-center justify-center>
     <v-layout row wrap>
       <v-flex xs12>
-        <h1>マイアドレス帳</h1>
-        <p>マイアドレス帳をご利用の方は、Googleアカウントでログインしてください。</p>
+        <h1>My DashBord</h1>
+        <p>My DashBordをご利用の方は、Googleアカウントでログインしてください。</p>
       </v-flex>
 
       <v-flex xs12 mt-5>

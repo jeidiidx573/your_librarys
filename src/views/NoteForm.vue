@@ -43,7 +43,6 @@ export default {
     } else {
       this.$router.push({ name: 'note' })
     }
-    console.log('ok')
   },
   data () {
     return {
