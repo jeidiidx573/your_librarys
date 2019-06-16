@@ -2,8 +2,8 @@
   <v-app>
     <v-toolbar app>
       <v-toolbar-side-icon v-show="$store.state.login_user" @click.stop="toggleSideMenu"></v-toolbar-side-icon>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>マイアドレス帳</span>
+      <v-toolbar-title class="headline">
+        <span>My DashBord</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="$store.state.login_user">
@@ -32,6 +32,7 @@ export default {
       if (user) {
         this.setLoginUser(user)
         this.fetchAddresses()
+        this.pickupNote()
         if (this.$router.currentRoute.name === 'home') this.$router.push({ name: 'addresses' })
       } else {
         this.deleteLoginUser()
@@ -45,7 +46,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser', 'fetchAddresses'])
+    ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser', 'fetchAddresses','pickupNote'])
   }
 }
 </script>

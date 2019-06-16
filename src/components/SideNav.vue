@@ -34,8 +34,9 @@ export default {
   data () {
     return {
       items: [
-        { title: 'Dashboard', icon: 'list', link: { name: 'addresses' } },
-        { title: 'Note', icon: 'list', link: { name: 'addresses' } },
+        { title: 'Dashboard', icon: 'perm_identity', link: { name: 'dashboard' } },
+        { title: 'Note', icon: 'description', link: { name: 'note' } },
+        // { title: 'MyNote', icon: 'bookmark', link: { name: 'mynote' } },
         { title: 'MyNote', icon: 'list', link: { name: 'addresses' } }
       ]
     }
