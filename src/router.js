@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Addresses from './views/Addresses.vue'
-import AddressForm from './views/AddressForm.vue'
 import Note from './views/Note.vue'
 import NoteForm from './views/NoteForm.vue'
 
@@ -27,16 +25,6 @@ export default new Router({
       path: '/note/:note_id?/edit',
       name: 'note_edit',
       component: NoteForm
-    },
-    {
-      path: '/addresses',
-      name: 'addresses',
-      component: Addresses
-    },
-    {
-      path: '/addresses/:address_id?/edit',
-      name: 'address_edit',
-      component: AddressForm
     },
     {
       path: '/about',

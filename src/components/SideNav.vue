@@ -5,7 +5,6 @@
         <v-list-tile-avatar>
           <img v-if="photoURL" :src="photoURL">
         </v-list-tile-avatar>
-
         <v-list-tile-content>
           <v-list-tile-title>{{ userName }}</v-list-tile-title>
         </v-list-tile-content>
@@ -13,13 +12,10 @@
     </v-list>
 
     <v-list class="pt-0" dense>
-      <v-divider></v-divider>
-
       <v-list-tile v-for="item in items" :key="item.title" :to="item.link">
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-tile-action>
-
         <v-list-tile-content>
           <v-list-tile-title>{{ item.title }}</v-list-tile-title>
         </v-list-tile-content>
@@ -34,10 +30,9 @@ export default {
   data () {
     return {
       items: [
-        { title: 'Dashboard', icon: 'perm_identity', link: { name: 'dashboard' } },
+        { title: 'Dashboard', icon: 'dashboard', link: { name: 'dashboard' } },
         { title: 'Note', icon: 'description', link: { name: 'note' } },
-        // { title: 'MyNote', icon: 'bookmark', link: { name: 'mynote' } },
-        { title: 'MyNote', icon: 'list', link: { name: 'addresses' } }
+        { title: 'MyNote', icon: 'list', link: { name: 'note' } }
       ]
     }
   },
