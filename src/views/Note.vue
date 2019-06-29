@@ -25,11 +25,6 @@
                 <span class="white--text"><v-icon small class="mr-1">tag</v-icon>{{ tags[tag] }}</span>
               </v-btn>
             </td>
-            <td class="text-xs-left">
-
-              <v-btn flat icon color="pink"><v-icon>favorite</v-icon></v-btn>
-              <v-btn flat icon color="grey lighten-1" @click="updateFavorite(props.item.id,props.item)"><v-icon>favorite</v-icon></v-btn>
-            </td>
             <td class="text-xs-left">{{ props.item.edit_user }}</td>
             <td class="text-xs-left">{{ props.item.reg_datetime }}</td>
             <td class="text-xs-left">
@@ -62,14 +57,12 @@ export default {
       headers: [
         { text: 'タイトル', value: 'title', width: '45%' },
         { text: 'タグ', value: 'tag' },
-        { text: 'お気に入り', value: 'favorite' },
         { text: '作成者', value: 'edit_user' },
         { text: '最終更新', value: 'reg_datetime' },
         { text: '操作', sortable: false }
       ],
       rows_per_page_items: [20,50,100,{"text":"$vuetify.dataIterator.rowsPerPageAll","value":-1}],
       notes: [],
-      favorite: [],
       tags: {}
     }
   },
@@ -81,11 +74,7 @@ export default {
         this.deleteNote({ id })
       }
     },
-    updateFavorite (id,user) {
-      this.favorite.push(id)
-      //this.updateUser({ id: this.$store.getters.uid, user: this.favorite })
-    },
-    ...mapActions(['deleteNote,updateUser'])
+    ...mapActions(['deleteNote'])
   }
 }
 </script>

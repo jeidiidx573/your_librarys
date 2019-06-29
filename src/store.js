@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios  from 'axios'
 import firebase from 'firebase'
 import moment from 'moment'
 
@@ -11,7 +12,6 @@ export default new Vuex.Store({
     drawer: false,
     now_datetime: moment().format("YYYY-MM-DD"),
     tags: { 1: 'perl', 2: 'HTML', 3: 'CSS', 4: 'javascript', 5: 'その他', 6: '雑記' },
-    users: [],
     notes: [],
   },
   mutations: {
@@ -24,12 +24,6 @@ export default new Vuex.Store({
     },
     toggleSideMenu (state) {
       state.drawer = !state.drawer
-    },
-
-    // users
-    updateUser (state, { id, user }) {
-      const index = state.users.findIndex(user => user.id === id)
-      state.users[index] = user
     },
 
     // notes

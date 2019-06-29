@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Dashbord from './views/Dashbord.vue'
 import Note from './views/Note.vue'
 import NoteForm from './views/NoteForm.vue'
 
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/dashbord',
+      name: 'dashbord',
+      component: Dashbord
     },
     {
       path: '/note',

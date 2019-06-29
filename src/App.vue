@@ -32,7 +32,7 @@ export default {
       if (user) {
         this.setLoginUser(user)
         this.pickupNote()
-        if (this.$router.currentRoute.name === 'home') this.$router.push({ name: 'note' })
+        if (this.$router.currentRoute.name === 'home') this.$router.push({ name: 'dashbord' })
       } else {
         this.deleteLoginUser()
         this.$router.push({ name: 'home' })

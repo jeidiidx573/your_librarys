@@ -30,9 +30,8 @@ export default {
   data () {
     return {
       items: [
-        { title: 'Dashboard', icon: 'dashboard', link: { name: 'dashboard' } },
-        { title: 'Note', icon: 'description', link: { name: 'note' } },
-        { title: 'MyNote', icon: 'list', link: { name: 'note' } }
+        { title: 'Dashboard', icon: 'dashboard', link: { name: 'dashbord' } },
+        { title: 'Note', icon: 'description', link: { name: 'note' } }
       ]
     }
   },
